@@ -1,0 +1,27 @@
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
+  type-aliases-package: com.example.demo.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-handlers-package: com.example.demo.handler.BaseEnumTypeHandler
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=UTF-8
+    password: 422525
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 3221225472
+  mvc:
+    format:
+      date: yyyy-MM-dd HH:mm:ss
+
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false

@@ -31,8 +31,9 @@ public class EscapeXssPlugin implements Interceptor {
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
-        if (invocation.getArgs().length<2)
+        if (invocation.getArgs().length<2) {
             return invocation.proceed();
+        }
 
         MappedStatement mappedStatement = (MappedStatement) invocation.getArgs()[0];
 

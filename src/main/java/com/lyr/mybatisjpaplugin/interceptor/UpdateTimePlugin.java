@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
+ * 更新时间自动填充插件
  * 完成插件签名
  *  告诉 mybatis 当前插件用来拦截哪个对象的哪个方法
  */
@@ -24,7 +25,7 @@ import java.util.Properties;
         @Signature(type = Executor.class,method = "update",args = { MappedStatement.class, Object.class })
 )
 
-@Component
+// @Component
 public class UpdateTimePlugin implements Interceptor {
     // @Override
     // public Object intercept(Invocation invocation) throws Throwable {

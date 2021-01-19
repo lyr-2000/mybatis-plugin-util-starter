@@ -2,6 +2,7 @@ package com.lyr.mybatisjpaplugin.common;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.lyr.mybatisjpaplugin.exception.NoEnumException;
 import org.springframework.lang.Nullable;
 
 /**
@@ -40,6 +41,7 @@ public interface BaseIntEnum<E extends Enum<E>> {
                 return a;
             }
         }
+        // throw new NoEnumException("枚举参数不对");
         return null;
     }
 
