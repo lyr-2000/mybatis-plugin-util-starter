@@ -158,8 +158,58 @@ public class Advertisement implements Serializable {
 生成 带有 lombok注解的代码
 
 
+##  5. 枚举字段自动填充默认值
+
+用法： 比如数据库逻辑删除，小项目 自己 数据的表 老是忘记填充默认值，那 可以在应用层 进行填充【也是鸡肋功能】
+
+```java
+
+package com.example.demo.common;
 
 
+import com.lyr.mybatisjpaplugin.annotation.InsertValue;
+import com.lyr.mybatisjpaplugin.common.BaseIntEnum;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+/**
+ * 逻辑删除， insert的时候 默认为 0 ，not deleted
+ * @Author lyr
+ * @create 2020/12/20 17:44
+ */
+@AllArgsConstructor
+@Getter
+@InsertValue(whenFieldAbsent = 0)
+public enum DeleteStatus implements BaseIntEnum<DeleteStatus> {
+    /**
+     * 没有被删除
+     */
+    not_deleted(0),
+    /**
+     * 被删除了
+     */
+    deleted(1);
+
+    public final int code;
+
+    /**
+     * 存入数据库的值
+     *
+     * @return
+     */
+    @Override
+    public Integer getValue() {
+        return code;
+    }
+
+
+}
+
+```
+
+
+
+@InsertValue(whenFieldAbsent = 0)  当 单表 insert 的时候，检查到 继承了  BaseIntEnum 接口的枚举后，会自动 填充默认值，比如  is_deleted =0 表示没有填充，那么 设置默认值为0就可以了
 
 
 
