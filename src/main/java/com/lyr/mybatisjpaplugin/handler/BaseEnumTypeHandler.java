@@ -12,8 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * @Author lyr
- * @create 2020/12/19 20:48
  */
 @MappedJdbcTypes(JdbcType.INTEGER)
 @MappedTypes(BaseIntEnum.class)
@@ -71,10 +69,7 @@ public  class BaseEnumTypeHandler<E extends BaseIntEnum> extends BaseTypeHandler
     /**
      * 可以空的对象
      *
-     * @param resultSet
-     * @param s
-     * @return
-     * @throws SQLException
+
      */
     @Override
     public E getNullableResult(ResultSet resultSet, String s) throws SQLException {

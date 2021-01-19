@@ -7,8 +7,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Author lyr
- * @create 2021/1/18 16:29
  */
 @Configuration
 public class MybatisVersionLockConf {

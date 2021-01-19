@@ -11,8 +11,6 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.Resource;
 
 /**
- * @Author lyr
- * @create 2020/12/20 0:02
  */
 
 @Configuration

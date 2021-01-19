@@ -1,8 +1,6 @@
 package com.lyr.mybatisjpaplugin.util;
 
 /**
- * @Author lyr
- * @create 2020/12/19 23:02
  */
 
 import org.mybatis.generator.api.CommentGenerator;
@@ -24,9 +22,6 @@ import static org.mybatis.generator.internal.util.StringUtility.isTrue;
 /**
  * mybatis逆向工程默认的注释修改(使用表的注释)
  *
- * @author jingshiyu
- * @date 2019/7/17 17:39:36
- * @desc
  */
 public class MyCommentGenerator implements CommentGenerator {
 
@@ -255,9 +250,6 @@ public class MyCommentGenerator implements CommentGenerator {
 
     /**
      * 类注释
-     * @param innerClass
-     * @param introspectedTable
-     * @param markAsDoNotDelete
      */
     @Override
     public void addClassComment(InnerClass innerClass, IntrospectedTable introspectedTable, boolean markAsDoNotDelete) {

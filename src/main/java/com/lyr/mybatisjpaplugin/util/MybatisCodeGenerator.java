@@ -12,8 +12,6 @@ import java.util.List;
 
 /**
  * 继承这个类，返回 xml配置文件接口，可以直接生成代码
- * @Author lyr
- * @create 2021/1/18 15:40
  */
 public abstract class MybatisCodeGenerator {
     public abstract String getAbsolutePathGeneratorConfig_xml(/*String generatorConfig_xml*/);

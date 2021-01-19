@@ -18,8 +18,6 @@ import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @Author lyr
- * @create 2020/12/21 14:21
  */
 @Slf4j
 @Intercepts(
@@ -76,8 +74,6 @@ public class OptimisticPlugin implements Interceptor {
     /**
      * 创建代理对象
      *
-     * @param target
-     * @return
      */
     @Override
     public Object plugin(Object target) {
@@ -88,7 +84,7 @@ public class OptimisticPlugin implements Interceptor {
      * 插件注册时候，  property 属性注入进来
      * 可以拿到插件配置信息
      *
-     * @param properties
+
      */
     @Override
     public void setProperties(Properties properties) {
@@ -99,13 +95,7 @@ public class OptimisticPlugin implements Interceptor {
     /**
      * 处理传入 的 java bean
      *
-     * @param parameter
-     * @param queryArgs
-     * @param invocation
-     * @param mappedStatement
-     * @return
-     * @throws InvocationTargetException
-     * @throws IllegalAccessException
+
      */
     private Object handleBean(Object parameter, Object[] queryArgs, Invocation invocation, MappedStatement mappedStatement) throws InvocationTargetException, IllegalAccessException {
         //不是 Map ,而是一个对象

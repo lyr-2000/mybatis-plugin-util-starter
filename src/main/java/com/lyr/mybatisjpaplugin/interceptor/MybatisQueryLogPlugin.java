@@ -21,8 +21,6 @@ import java.util.Properties;
 
 
 /**
- * @Author lyr
- * @create 2020/12/20 20:16
  */
 @Slf4j
 @Intercepts({

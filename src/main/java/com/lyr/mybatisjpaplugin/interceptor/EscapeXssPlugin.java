@@ -15,8 +15,6 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * @Author lyr
- * @create 2020/12/20 12:32
  */
 @Intercepts(
         @Signature(type = Executor.class,method = "update",args = { MappedStatement.class, Object.class })
@@ -65,8 +63,7 @@ public class EscapeXssPlugin implements Interceptor {
 
     /**
      * 创建代理对象
-     * @param target
-     * @return
+
      */
     @Override
     public Object plugin(Object target) {
@@ -76,7 +73,7 @@ public class EscapeXssPlugin implements Interceptor {
     /**
      * 插件注册时候，  property 属性注入进来
      * 可以拿到插件配置信息
-     * @param properties
+
      */
     @Override
     public void setProperties(Properties properties) {

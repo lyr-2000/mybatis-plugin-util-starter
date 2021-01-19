@@ -14,8 +14,6 @@ import java.util.Properties;
 
 /**
  * 自动insert 枚举字段
- * @Author lyr
- * @create 2020/12/20 18:30
  */
 @Intercepts(
         @Signature(type = Executor.class,method = "update",args = { MappedStatement.class, Object.class })
@@ -50,8 +48,7 @@ public class EnumInsertFillPlugin implements Interceptor {
 
     /**
      * 创建代理对象
-     * @param target
-     * @return
+
      */
     @Override
     public Object plugin(Object target) {
@@ -61,7 +58,7 @@ public class EnumInsertFillPlugin implements Interceptor {
     /**
      * 插件注册时候，  property 属性注入进来
      * 可以拿到插件配置信息
-     * @param properties
+
      */
     @Override
     public void setProperties(Properties properties) {

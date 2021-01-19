@@ -1,8 +1,6 @@
 package com.lyr.mybatisjpaplugin.util;
 
 /**
- * @Author lyr
- * @create 2020/12/19 23:01
  */
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
@@ -13,9 +11,6 @@ import org.mybatis.generator.api.dom.java.*;
 import java.util.*;
 
 /** 自定义的lombok注解配置
- * @author jingshiyu
- * @date 2019/9/17 12:04:47
- * @desc
  */
 public class LombokPlugin extends PluginAdapter {
 
@@ -57,7 +52,7 @@ public class LombokPlugin extends PluginAdapter {
      * @param topLevelClass     the generated primary key class
      * @param introspectedTable The class containing information about the table as
      *                          introspected from the database
-     * @return always true
+     * @return always true sfs
      */
     @Override
     public boolean modelPrimaryKeyClassGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
@@ -114,7 +109,7 @@ public class LombokPlugin extends PluginAdapter {
 
     /**
      * entity类设置
-     * @param properties
+     * @param properties sfsffsf
      */
     @Override
     public void setProperties(Properties properties) {
@@ -253,8 +248,7 @@ public class LombokPlugin extends PluginAdapter {
         DATE_TIME_FORMAT("dateTimeFormat", "@DateTimeFormat(pattern = \"yyyy-MM-dd HH:mm:ss\")", "org.springframework.format.annotation.DateTimeFormat"),
         JSON_FORMAT("jsonFormat", "@JsonFormat(pattern = \"yyyy-MM-dd HH:mm:ss\")", "com.fasterxml.jackson.annotation.JsonFormat"),
         Json_ignore("","@JsonIgnore","com.fasterxml.jackson.annotation.JsonIgnore"),
-        //TODO: 下面是自定义的注解
-        // tableId
+
         /*
         *
         *

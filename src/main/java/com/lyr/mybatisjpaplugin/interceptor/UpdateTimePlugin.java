@@ -18,8 +18,6 @@ import java.util.Properties;
 /**
  * 完成插件签名
  *  告诉 mybatis 当前插件用来拦截哪个对象的哪个方法
- * @Author lyr
- * @create 2020/12/19 22:55
  */
 // @Configuration
 @Intercepts(
@@ -59,8 +57,7 @@ public class UpdateTimePlugin implements Interceptor {
 
     /**
      * 创建代理对象
-     * @param target
-     * @return
+
      */
     @Override
     public Object plugin(Object target) {
@@ -70,7 +67,7 @@ public class UpdateTimePlugin implements Interceptor {
     /**
      * 插件注册时候，  property 属性注入进来
      * 可以拿到插件配置信息
-     * @param properties
+
      */
     @Override
     public void setProperties(Properties properties) {
