@@ -158,6 +158,105 @@ public class Advertisement implements Serializable {
 生成 带有 lombok注解的代码
 
 
+#### 配置如下
+
+```xml
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!--    &lt;!&ndash; 引入配置文件 &ndash;&gt;-->
+<!--        <properties resource="project_path.properties">-->
+<!--        </properties>-->
+
+    <properties resource="project_path.properties"/>
+    <!-- 放到resources目录下，点击 plugin -> mybatis:generate    -->
+    <!--
+        select table_schema, table_name,column_name from  INFORMATION_SCHEMA.KEY_COLUMN_USAGE  t where t.table_schema='blog_v4'
+
+
+       -->
+    <!-- 记得修改默认的密码    -->
+    <context id="mysqlTable" targetRuntime="MyBatis3"     defaultModelType="flat">
+        <plugin type="com.lyr.mybatisjpaplugin.util.LombokPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin" />
+        <!--        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <!--        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />-->
+
+        <commentGenerator type="com.lyr.mybatisjpaplugin.util.MyCommentGenerator" >
+            <!--            &lt;!&ndash; 是否去除自动生成的注释 true：是 ： false:否 &ndash;&gt;-->
+            <!--            <property name="suppressAllComments" value="true" />-->
+            <!--            &lt;!&ndash; 阻止注释中包含时间戳 true：是 ： false:否 &ndash;&gt;-->
+            <!--            <property name="suppressDate" value="true" />-->
+            <!--            &lt;!&ndash;  注释是否包含数据库表的注释信息  true：是 ： false:否 &ndash;&gt;-->
+            <!--            <property name="addRemarkComments" value="true" />-->
+        </commentGenerator>
+
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/blog_v4?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false"
+                        userId="root"
+                        password="422525">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="${domain}"
+                            targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--    sql文件    -->
+        <sqlMapGenerator targetPackage="mapper/"
+                         targetProject="src/main/resources/">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="${mapper}"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+
+
+
+        <table tableName="t_blog" domainObjectName="Blog"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"
+               enableDeleteByPrimaryKey="false"
+        >
+
+            <generatedKey column="blog_id"  sqlStatement="Mysql"  identity="true" />
+        </table>
+      
+
+    </context>
+</generatorConfiguration>
+
+
+
+```
+
+
+
+
+
+
+
 ##  5. 枚举字段自动填充默认值
 
 用法： 比如数据库逻辑删除，小项目 自己 数据的表 老是忘记填充默认值，那 可以在应用层 进行填充【也是鸡肋功能】
