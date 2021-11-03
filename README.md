@@ -160,6 +160,19 @@ public class Advertisement implements Serializable {
 
 #### 配置如下
 
+```properties
+mapper=io.github.lyr2000.dissertation.mapper
+domain=io.github.lyr2000.dissertation.pojo.po
+
+url=jdbc:mysql://localhost:3306/a?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+
+userId=root
+password=123
+
+
+```
+
+
 ```xml
 
 
@@ -203,10 +216,10 @@ public class Advertisement implements Serializable {
         </commentGenerator>
 
 
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/blog_v4?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false"
-                        userId="root"
-                        password="422525">
+          <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="${url}"
+                        userId="${userId}"
+                        password="${password}">
             <property name="nullCatalogMeansCurrent" value="true"/>
         </jdbcConnection>
 
